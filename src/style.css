@@ -1,0 +1,157 @@
+/* General */
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    height: 100%;
+    width: 100%;
+    font-family: sans-serif;
+}
+
+body {
+    font-family: sans-serif;
+    font-size: 1rem;
+    color: #2f2b32;
+}
+
+
+/* Header */
+
+#siteHeader {
+    padding: 1rem;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+
+/* Table Components */
+
+#table {
+    overflow: scroll;
+    border-collapse: collapse;
+    color: #404040;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+    -o-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+    -ms-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+    font-size: 0.9rem;
+    margin-left: 1rem;
+}
+
+#actionBar {
+    margin-left: 1rem;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.cell {
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    border-right: 1px solid #cfe4d8;
+    border-bottom: 1px solid #cfe4d8;
+    min-width: 150px;
+}
+
+#tableHeader input {
+    font-weight: bold;
+}
+
+#tableHeader .cell {
+    border-bottom: 1px solid #0ec099;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+
+/* Input */
+
+input {
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: center;
+}
+
+#tableBody input,
+select {
+    height: 100%;
+    padding: 10px 8px;
+    outline: none;
+    border: none;
+}
+
+.label {
+    padding-top: 12px;
+}
+
+
+/* Button */
+
+button {
+    outline: none;
+    border: none;
+    background: transparent;
+    font-weight: bold;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.addNew {
+    margin: 1px;
+    padding: 6px 10px;
+    background-color: #0ec099;
+    font-size: 0.8rem;
+}
+
+button.deleteRow {
+    width: 24px;
+    height: 24px;
+    margin-top: 8px;
+    border: 1px solid #f95a37;
+    border-radius: 50%;
+    background-color: #fff;
+    font-size: 1.2rem;
+    color: #f95a37;
+    -webkit-box-shadow: 0px 2px 2px 4px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 2px 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s ease 0s;
+}
+
+button.deleteColumn {
+    margin: 0.3rem;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #f95a37;
+    border-radius: 50%;
+    background-color: #fff;
+    font-size: 0.8rem;
+    line-height: 0.8rem;
+    color: #f95a37;
+    -webkit-box-shadow: 0px 2px 2px 4px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 2px 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s ease 0s;
+}
+
+button.deleteRow:hover,
+button.deleteColumn:hover {
+    background-color: #f95a37;
+    color: #fff;
+}

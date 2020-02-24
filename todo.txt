@@ -1,0 +1,21 @@
+Componenta mare - site
+ -- header site
+--action bar
+--tabel
+	--header tabel
+	--date tabel
+		- row			
+		  --select input (array de valori, val, actiune)
+		  --table input (val, actiune)
+
+
+
+- check trello => pg pt manage boards + formular pt editat fiecare board (coloane etc)
+
+- pagina
+ -- titlu
+ -- formular
+	-- input: title (form input, text)
+	-- nr coloane:
+	-- genereaza pt fiecare coloana(ia nr de mai sus): tip(select input), nume (form input - tip text)
+		- daca tip e select + add optiuni

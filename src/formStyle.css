@@ -1,0 +1,90 @@
+/* General */
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    height: 100%;
+    width: 100%;
+    font-family: sans-serif;
+}
+
+body {
+    font-family: sans-serif;
+    font-size: 1rem;
+    color: #2f2b32;
+}
+
+
+/* Container */
+
+#boardConfig {
+    background-color: white;
+    height: 100%;
+    padding: 40px;
+    margin: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+/* Header */
+
+#title {
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #0ec099;
+}
+
+
+/* Form */
+
+#columnDetails {
+    margin: 10px 20px;
+}
+
+.formLabel {
+    margin: 10px;
+    padding: 5px;
+}
+
+.formInput {
+    width: 170px;
+    box-sizing: border-box;
+    border: 1px solid #bebebe;
+    padding: 5px;
+    margin: 10px;
+    outline: none;
+}
+
+.formInput:focus {
+    box-shadow: 0 0 8px #76c5b4;
+    border: 1px solid #76c5b4;
+}
+
+#columnDetails select {
+    margin-left: 20px;
+}
+
+#optionDetails {
+    margin: 10px 20px;
+}
+
+.optionButton {
+    margin: 1px;
+    padding: 6px 10px;
+    background-color: #0ec099;
+    font-size: 0.8rem;
+    color: white;
+}
+
+.optionListItem {
+    margin: 3px 100px;
+    color: gray;
+    font-size: 0.8rem;
+}
