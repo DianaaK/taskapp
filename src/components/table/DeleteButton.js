@@ -4,8 +4,8 @@ function DeleteButton(props) {
   const handleOnClick = event => {
     event.stopPropagation();
     return props.classname === "deleteRow"
-      ? props.deleteRow(props.keyName)
-      : props.deleteColumn(props.keyName);
+      ? props.deleteRow(props.deleteId)
+      : props.deleteColumn(props.deleteId);
   };
 
   return (

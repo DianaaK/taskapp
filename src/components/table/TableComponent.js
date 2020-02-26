@@ -6,7 +6,7 @@ function TableComponent(props) {
   return (
     <div id="table">
       <TableHeader
-        header={props.board.header}
+        columns={props.board.columns}
         deleteColumn={props.deleteColumn}
         headerInputChange={props.headerInputChange}
         sortColumn={props.sortColumn}

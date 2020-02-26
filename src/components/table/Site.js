@@ -47,7 +47,7 @@ function mapStateToProps(state) {
   return {
     board: {
       title: state.title,
-      header: state.columns,
+      columns: state.columns,
       tasks: state.tasks
     }
   };

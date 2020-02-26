@@ -26,7 +26,7 @@ function reducer(state = initialState, action) {
     case ActionTypes.DELETE_COLUMN: {
       return {
         ...state,
-        columns: state.columns.filter(column => column.key !== action.payload)
+        columns: state.columns.filter(column => column.id !== action.payload)
       };
     }
     case ActionTypes.SORT_COLUMN: {
@@ -50,11 +50,17 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         columns: state.columns.map(column => {
-          if (column.key === action.payload.key) {
+          if (column.id === action.payload.id) {
             column.label = action.payload.value;
           }
           return column;
         })
+      };
+    }
+    case ActionTypes.SET_COLUMNSEQUENCEID: {
+      return {
+        ...state,
+        columnSequenceId: action.payload
       };
     }
     default:

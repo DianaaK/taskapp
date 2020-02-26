@@ -12,11 +12,11 @@ class TaskRow extends React.Component {
         <div className="cell" style={{ minWidth: "80px", ...styles }}>
           <DeleteButton
             classname="deleteRow"
-            keyName={this.props.task.id}
+            deleteId={this.props.task.id}
             deleteRow={this.props.deleteRow}
           />
         </div>
-        {this.props.header.map((column, index) => {
+        {this.props.columns.map((column, index) => {
           switch (column.type) {
             case "select":
               return (
@@ -26,7 +26,7 @@ class TaskRow extends React.Component {
                     valueArray={column.options}
                     inputChange={this.props.taskInputChange(
                       this.props.task.id,
-                      column.key
+                      column.id
                     )}
                     style={{ ...styles }}
                   />
@@ -43,7 +43,7 @@ class TaskRow extends React.Component {
                     value={this.props.task[column.key]}
                     inputChange={this.props.taskInputChange(
                       this.props.task.id,
-                      column.key
+                      column.id
                     )}
                     type={column.inputType}
                     style={{ ...styles }}

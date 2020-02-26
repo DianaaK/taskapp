@@ -10,13 +10,13 @@ class SelectInput extends React.Component {
       <React.Fragment>
         <label
           className="formLabel"
-          htmlFor={this.props.name + this.props.index}
+          htmlFor={this.props.name + this.props.columnId}
         >
           {this.props.name}
         </label>
         <select
           className="formInput"
-          id={this.props.name + this.props.index}
+          id={this.props.name + this.props.columnId}
           value={this.props.value}
           onChange={this.onFieldChange}
           style={this.props.style}

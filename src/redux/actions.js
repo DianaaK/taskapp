@@ -1,4 +1,5 @@
 import { ActionTypes } from "./store";
+import { store } from "./index";
 
 class Actions {
   addRow = row => {
@@ -21,8 +22,29 @@ class Actions {
     };
   };
 
+  generateColumn = () => {
+    return dispatch => {
+      const state = store.getState();
+      const columnSequenceId = state.columnSequenceId + 1;
+      dispatch({
+        type: ActionTypes.SET_COLUMNSEQUENCEID,
+        payload: columnSequenceId
+      });
+      return {
+        id: columnSequenceId,
+        key: "col" + columnSequenceId,
+        label: "",
+        type: "",
+        inputType: ""
+      };
+    };
+  };
+
   addColumn = column => {
     return dispatch => {
+      if (!column) {
+        column = this.generateColumn();
+      }
       dispatch({
         type: ActionTypes.ADD_COLUMN,
         payload: column
@@ -30,11 +52,11 @@ class Actions {
     };
   };
 
-  deleteColumn = key => {
+  deleteColumn = id => {
     return dispatch => {
       dispatch({
         type: ActionTypes.DELETE_COLUMN,
-        payload: key
+        payload: id
       });
     };
   };
@@ -68,11 +90,11 @@ class Actions {
     };
   };
 
-  headerChange = (key, value) => {
+  headerChange = (id, value) => {
     return dispatch => {
       dispatch({
         type: ActionTypes.HEADER_INPUT_CHANGE,
-        payload: { key, value }
+        payload: { id, value }
       });
     };
   };

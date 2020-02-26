@@ -10,13 +10,13 @@ class FormInput extends React.Component {
       <React.Fragment>
         <label
           className="formLabel"
-          htmlFor={this.props.name + this.props.index}
+          htmlFor={this.props.name + this.props.columnId}
         >
           {this.props.name}
         </label>
         <input
           className="formInput"
-          id={this.props.name + this.props.index}
+          id={this.props.name + this.props.columnId}
           type={this.props.type}
           value={this.props.value}
           onChange={this.handleTextChange}

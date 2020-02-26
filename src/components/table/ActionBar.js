@@ -12,20 +12,21 @@ function ActionBar(props) {
   };
 
   const generateColumnId = board => {
-    const id = board.header[board.header.length - 1].key.replace("col", "") + 1;
+    const id = board.columns[board.columns.length - 1].id + 1;
     return id;
   };
 
   const generateRow = newId => {
     let obj = { id: newId };
-    props.board.header.forEach(column => {
-      if (column.key !== "id") obj[column.key] = "";
+    props.board.columns.forEach(column => {
+      if (column.label !== "ID") obj[column.label] = "";
     });
     return obj;
   };
 
   const generateColumn = newId => {
     return {
+      id: newId,
       key: "col" + newId,
       label: "New Column",
       type: "input",

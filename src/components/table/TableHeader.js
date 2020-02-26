@@ -8,21 +8,21 @@ function TableHeader(props) {
       <div className="cell" style={{ minWidth: "80px" }}>
         #
       </div>
-      {props.header.map(column => (
+      {props.columns.map(column => (
         <div
           className="cell"
-          key={column.key}
+          key={column.id}
           style={{ minWidth: column.width }}
           onClick={e => props.sortColumn(e, column.key)}
         >
           <DeleteButton
             classname="deleteColumn"
-            keyName={column.key}
+            deleteId={column.id}
             deleteColumn={props.deleteColumn}
           />
           <TableInput
             value={column.label}
-            inputChange={props.headerInputChange(column.key)}
+            inputChange={props.headerInputChange(column.id)}
             type={"text"}
           />
         </div>

@@ -12,6 +12,7 @@ Componenta mare - site
 
 - check trello => pg pt manage boards + formular pt editat fiecare board (coloane etc)
 
+
 - pagina
  -- titlu
  -- formular
@@ -19,3 +20,17 @@ Componenta mare - site
 	-- nr coloane:
 	-- genereaza pt fiecare coloana(ia nr de mai sus): tip(select input), nume (form input - tip text)
 		- daca tip e select + add optiuni
+
+
+-- dimensiune coloana - select cu mic/mediu/mare
+-- legat pagina de redux si de tabel (ask andreea)
+-- material UI (cum se schimba style, etc)
+
+
+-- site -> devine un switch cu route (pagina principala sort of) + redenumit si reorganizat componente
+-- key -> legatura dintre task si column, ramane doar unde e necesar (la nivel de coloana -> id)
+	-- incrementat id
+-- generare ID (schimbat functia din actionBar)
+
+
+

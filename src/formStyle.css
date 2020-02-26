@@ -63,8 +63,8 @@ body {
 }
 
 .formInput:focus {
-    box-shadow: 0 0 8px #76c5b4;
-    border: 1px solid #76c5b4;
+    box-shadow: 0 0 3px #8bd3c3;
+    border: 1px solid #8bd3c3;
 }
 
 #columnDetails select {
@@ -75,7 +75,8 @@ body {
     margin: 10px 20px;
 }
 
-.optionButton {
+.optionButton,
+#saveButton {
     margin: 1px;
     padding: 6px 10px;
     background-color: #0ec099;
@@ -83,8 +84,19 @@ body {
     color: white;
 }
 
+.clearButton {
+    margin: 10px 100px;
+    padding: 6px 10px;
+    background-color: #79918cc0;
+    color: white;
+}
+
 .optionListItem {
     margin: 3px 100px;
     color: gray;
     font-size: 0.8rem;
+}
+
+#saveButton {
+    margin-top: 20px;
 }

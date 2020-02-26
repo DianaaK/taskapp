@@ -9,7 +9,7 @@ function TableData(props) {
           key={index}
           index={index}
           task={task}
-          header={props.board.header}
+          columns={props.board.columns}
           deleteRow={props.deleteRow}
           taskInputChange={props.taskInputChange}
         />

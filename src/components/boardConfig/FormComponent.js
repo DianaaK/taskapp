@@ -1,16 +1,15 @@
 import React from "react";
 import FormInput from "./FormInput";
-import SelectInput from "./SelectInput";
-import OptionInput from "./OptionInput";
+import ColumnDetails from "./ColumnDetails";
 
-import TextField from "@material-ui/core/TextField";
+// import TextField from "@material-ui/core/TextField";
 
-class ConfigForm extends React.Component {
+class FormComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "",
-      columns: []
+      title: props.title,
+      columns: props.columns
     };
   }
 
@@ -24,8 +23,10 @@ class ConfigForm extends React.Component {
   handleColumns = value => {
     let newColumns = this.state.columns;
     let i = newColumns.length;
+    let id = i === 0 ? 0 : newColumns[newColumns.length - 1].id + 1;
     while (i < value) {
-      newColumns.push({ id: i++ });
+      newColumns.push({ id: id++ });
+      i++;
     }
     this.setState(state => ({
       ...state,
@@ -33,11 +34,11 @@ class ConfigForm extends React.Component {
     }));
   };
 
-  handleColumnName = index => value => {
+  handleColumnName = columnId => value => {
     this.setState(state => ({
       ...state,
       columns: state.columns.map(column => {
-        if (column.id === index) {
+        if (column.id === columnId) {
           column.label = value;
           column.key = value;
         }
@@ -46,11 +47,11 @@ class ConfigForm extends React.Component {
     }));
   };
 
-  handleSelect = index => value => {
+  handleSelect = columnId => value => {
     this.setState(state => ({
       ...state,
       columns: state.columns.map(column => {
-        if (column.id === index) {
+        if (column.id === columnId) {
           column.type = value;
         }
         return column;
@@ -58,19 +59,19 @@ class ConfigForm extends React.Component {
     }));
   };
 
-  handleDeleteColumn = event => {
-    const index = event.target.name;
+  handleDeleteColumn = columnId => {
+    const columns = this.state.columns.filter(column => column.id !== columnId);
     this.setState(state => ({
       ...state,
-      columns: state.columns.filter(column => column.id !== parseInt(index))
+      columns
     }));
   };
 
-  handleOptionButtonClicked = index => value => {
+  handleOptionButtonClicked = columnId => value => {
     this.setState(state => ({
       ...state,
       columns: state.columns.map(column => {
-        if (column.id === index) {
+        if (column.id === columnId) {
           let newArray = column.options || [];
           newArray.push(value);
           column.options = newArray;
@@ -80,12 +81,23 @@ class ConfigForm extends React.Component {
     }));
   };
 
+  handleClearButtonClicked = columnId => {
+    this.setState(state => ({
+      ...state,
+      columns: state.columns.map(column => {
+        if (column.id === columnId) {
+          column.options = [];
+        }
+        return column;
+      })
+    }));
+  };
+
   render() {
     const { title, columns } = this.state;
-    // console.log(this.state);
-    const columnTypeOptions = ["date", "number", "select", "text"];
+    console.log(title, columns);
     return (
-      <div>
+      <div id="boardConfiguration">
         <div id="boardDetails">
           {/* <TextField
             id="outlined-basic"
@@ -117,37 +129,15 @@ class ConfigForm extends React.Component {
         <div id="columnDetails">
           {columns.map((column, index) => {
             return (
-              <div key={index}>
-                <button name={index} onClick={this.handleDeleteColumn}>
-                  x
-                </button>
-                <FormInput
-                  name="Column name:"
-                  type="text"
-                  value={columns.find(column => column.id === index).name}
-                  inputChange={this.handleColumnName(index)}
-                  index={index}
-                />
-                <SelectInput
-                  name="Column type:"
-                  value={
-                    columns.find(column => column.id === index).type ||
-                    "Choose column type"
-                  }
-                  valueArray={columnTypeOptions}
-                  inputChange={this.handleSelect(index)}
-                  index={index}
-                />
-                {columns.find(column => column.id === index).type !==
-                "select" ? (
-                  ""
-                ) : (
-                  <OptionInput
-                    optionButtonClicked={this.handleOptionButtonClicked(index)}
-                    options={column.options || []}
-                  />
-                )}
-              </div>
+              <ColumnDetails
+                key={index}
+                column={column}
+                handleColumnName={this.handleColumnName}
+                handleSelect={this.handleSelect}
+                handleOptionButtonClicked={this.handleOptionButtonClicked}
+                handleClearButtonClicked={this.handleClearButtonClicked}
+                handleDeleteColumn={this.handleDeleteColumn}
+              />
             );
           })}
         </div>
@@ -156,4 +146,4 @@ class ConfigForm extends React.Component {
   }
 }
 
-export default ConfigForm;
+export default FormComponent;

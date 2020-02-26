@@ -1,8 +1,6 @@
 import React from "react";
 import FormInput from "./FormInput";
 
-import Button from "@material-ui/core/Button";
-
 class OptionInput extends React.Component {
   constructor(props) {
     super(props);
@@ -19,11 +17,17 @@ class OptionInput extends React.Component {
   };
 
   handleAddOption = () => {
-    this.props.optionButtonClicked(this.state.option);
-    this.setState(state => ({
-      ...state,
-      option: ""
-    }));
+    if (this.state.option) {
+      this.props.optionButtonClicked(this.state.option);
+      this.setState(state => ({
+        ...state,
+        option: ""
+      }));
+    }
+  };
+
+  handleClearOptions = () => {
+    this.props.handleClearButtonClicked(this.props.columnId);
   };
 
   render() {
@@ -34,13 +38,11 @@ class OptionInput extends React.Component {
           type="text"
           value={this.state.option}
           inputChange={this.handleChange}
+          columnId={this.props.columnId}
         />
         <button className="optionButton" onClick={this.handleAddOption}>
           Add option
         </button>
-        {/* <Button variant="contained" size="small">
-          Add option
-        </Button> */}
         {this.props.options.map(option =>
           option ? (
             <li className="optionListItem" key={option}>
@@ -49,6 +51,15 @@ class OptionInput extends React.Component {
           ) : (
             ""
           )
+        )}
+        {this.props.options.length > 0 ? (
+          <div>
+            <button className="clearButton" onClick={this.handleClearOptions}>
+              Clear options
+            </button>
+          </div>
+        ) : (
+          ""
         )}
       </div>
     );
